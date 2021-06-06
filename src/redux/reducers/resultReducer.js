@@ -2,17 +2,16 @@ import { UPDATE_VALUE } from '../actions/types';
 
 
 const INITIAL_STATE = {
-  value : 0,
+  history : [],
+  result  : 0
 };
   
-const reduce = ( state = INITIAL_STATE, action ) => {
+export default function reduce( state = INITIAL_STATE, action ) {
   if( action.type === UPDATE_VALUE ) {
     return {
       ...state,
-      value : action.payload
+      result : action.payload
     };
   }
   return state;
 };
-
-export default reduce;

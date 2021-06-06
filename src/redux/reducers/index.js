@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import helloReducer from './helloReducer';
+import resultReducer from './resultReducer';
 
 
-export default combineReducers({ helloReducer });
+export default combineReducers( { resultReducer } );
