@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { bindActionCreators } from "redux";
+import { connect } from 'react-redux';
 
-function App() {
+import { updateValue } from './redux/actions/helloActions';
+import useAppStyles from './appStyles';
+
+const { Button } = require( "@material-ui/core" );
+
+
+export const mapToStateProps = ( state ) => ({
+  value : state.helloReducer.value
+});
+
+export const mapDispatchToProps = ( dispatch ) => {
+  return bindActionCreators({ updateValue }, dispatch );
+};
+
+function App( { value, updateValue } ) {
+  const classes = useAppStyles();
+   
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Developed by CesarF
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <main>
+        <p>{ value }</p>
+        <Button
+          className={ classes.button }
+          onClick={ updateValue }
+        >
+          +
+        </Button>
+      </main>
     </div>
   );
 }
 
-export default App;
+export default connect( mapToStateProps, mapDispatchToProps )( App );
