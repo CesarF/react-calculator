@@ -20,6 +20,7 @@ export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => 
           throw Error( "Not valid operation" );
         }
         result = operation( lastResult, currentResult );
+        lastResult = currentResult;
         currentResult = result;
       }
       else {
