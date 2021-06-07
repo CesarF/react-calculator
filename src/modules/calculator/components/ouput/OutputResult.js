@@ -12,7 +12,9 @@ function OutputResult({ result, error }) {
   return (
     <Grid
       container
-      direction="row"
+      direction="column"
+      justify="flex-start"
+      alignItems="stretch"
     >
       <h1>{ result }</h1>
       <label>{ error }</label>
