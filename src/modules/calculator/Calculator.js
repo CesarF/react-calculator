@@ -43,11 +43,7 @@ function Calculator() {
       alignItems='center'
     >
       <div className={ classes.calculator }>
-        <Grid
-          container
-        >
-          <OutputResult/>
-        </Grid>
+        <OutputResult/>
         <Grid
           container
           direction="column"

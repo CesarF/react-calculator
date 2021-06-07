@@ -1,16 +1,25 @@
-import { UPDATE_VALUE } from '../actions/types';
+import { ERROR, UPDATE_VALUE } from '../actions/types';
 
 
 const INITIAL_STATE = {
   history : [],
-  result  : 0
+  inMemory: 0,
+  result  : 0,
+  operator: undefined,
+  error: undefined
 };
   
 export default function reduce( state = INITIAL_STATE, action ) {
   if( action.type === UPDATE_VALUE ) {
     return {
       ...state,
-      result : action.payload
+      ...action.payload
+    };
+  }
+  if( action.type === ERROR ) {
+    return {
+      ...state,
+      error: action.payload
     };
   }
   return state;
