@@ -5,13 +5,11 @@ import { operators } from './operators';
 
 export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => {
   try {
-    let { result, inMemory, operator, history } = getState().resultReducer;
+    let { result, lastResult, currentResult, operator, history } = getState().resultReducer;
     // If user clicked on a number
     if( type === DIGIT_TYPE ) {
-      if( operator ) {
-        result = 0;
-      }
-      result = parseInt( `${ result }${ symbol }` );
+      currentResult = parseInt( `${ currentResult }${ symbol }` );
+      result = currentResult;
     }
     // If user clicked on an operation button
     else if( type === OPERATION_TYPE ) {
@@ -21,12 +19,14 @@ export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => 
         if( !operation ) {
           throw Error( "Not valid operation" );
         }
-        result = operation( inMemory, result );
+        result = operation( lastResult, currentResult );
+        currentResult = result;
       }
       else {
-        inMemory = result;
+        lastResult = currentResult;
+        currentResult = 0;
         operator = symbol;
-        history.push( inMemory );
+        history.push( lastResult );
       }
       history.push( symbol );
     }
@@ -35,7 +35,8 @@ export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => 
       type    : UPDATE_VALUE,
       payload : {
         result,
-        inMemory,
+        lastResult,
+        currentResult,
         operator
       }
     });

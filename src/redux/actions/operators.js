@@ -16,6 +16,9 @@ export function substract( firstNumber, secondNumber ) {
 }
 
 export function divide( firstNumber, secondNumber ) {
+  if( secondNumber === 0 ) {
+    throw Error( "Divide by zero" );
+  }
   return firstNumber / secondNumber;
 }
 
