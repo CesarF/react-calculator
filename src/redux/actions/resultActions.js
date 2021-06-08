@@ -1,15 +1,21 @@
-import { DIGIT_TYPE, OPERATION_TYPE, RESULT_OPERATION } from "../../utils/const";
+import { COMMA_DIGIT, DIGIT_TYPE, OPERATION_TYPE, RESULT_OPERATION } from "../../utils/const";
 import { UPDATE_VALUE, ERROR } from "./types";
 import { operators } from './operators';
 
 
 export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => {
   try {
-    let { result, lastResult, currentResult, operator, history } = getState().resultReducer;
+    let { result, lastResult, currentResult, operator, history, decimal } = getState().resultReducer;
     // If user clicked on a number
     if( type === DIGIT_TYPE ) {
-      currentResult = parseInt( `${ currentResult }${ symbol }` );
-      result = currentResult;
+      if( symbol === COMMA_DIGIT ) {
+        decimal = true;
+      }
+      else {
+        currentResult = parseFloat( `${ currentResult }${ decimal ? '.' : '' }${ symbol }` );
+        result = currentResult;
+        decimal = false;
+      }
     }
     // If user clicked on an operation button
     else if( type === OPERATION_TYPE ) {
@@ -29,6 +35,7 @@ export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => 
         operator = symbol;
         history.push( lastResult );
       }
+      decimal = false;
       history.push( symbol );
     }
 
@@ -38,7 +45,8 @@ export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => 
         result,
         lastResult,
         currentResult,
-        operator
+        operator,
+        decimal
       }
     });
   }

@@ -10,7 +10,8 @@ const INITIAL_STATE = {
   currentResult: 0,
   result       : 0,
   operator     : undefined,
-  error        : undefined
+  error        : undefined,
+  decimal      : false
 };
   
 export default function reduce( state = INITIAL_STATE, action ) {

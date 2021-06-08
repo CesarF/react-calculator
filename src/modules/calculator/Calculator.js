@@ -2,6 +2,7 @@ import { Grid } from "@material-ui/core";
 
 import {
   ADD_OPERATION,
+  COMMA_DIGIT,
   DIGIT_TYPE,
   DIVIDE_OPERATION,
   EIGTH_DIGIT,
@@ -31,7 +32,7 @@ const calculatorMatrix = [
   [ { symbol: SEVEN_DIGIT, type: DIGIT_TYPE }, { symbol: EIGTH_DIGIT, type: DIGIT_TYPE }, { symbol: NINE_DIGIT, type: DIGIT_TYPE },  { symbol: MULTIPLY_OPERATION, type: OPERATION_TYPE }   ],
   [ { symbol: FOUR_DIGIT, type: DIGIT_TYPE },  { symbol: FIVE_DIGIT, type: DIGIT_TYPE },  { symbol: SIX_DIGIT, type: DIGIT_TYPE },   { symbol: SUBSTRACT_OPERATION, type: OPERATION_TYPE }  ],
   [ { symbol: ONE_DIGIT, type: DIGIT_TYPE },   { symbol: TWO_DIGIT, type: DIGIT_TYPE },   { symbol: THREE_DIGIT, type: DIGIT_TYPE }, { symbol: ADD_OPERATION, type: OPERATION_TYPE }        ],
-  [ { symbol: ZERO_DIGIT, type: DIGIT_TYPE },  { symbol: EMPTY_SLOT },                    { symbol: EMPTY_SLOT },                    { symbol: RESULT_OPERATION, type: OPERATION_TYPE }     ]
+  [ { symbol: ZERO_DIGIT, type: DIGIT_TYPE },  { symbol: EMPTY_SLOT },                    { symbol: COMMA_DIGIT, type: DIGIT_TYPE }, { symbol: RESULT_OPERATION, type: OPERATION_TYPE }     ]
 ]
 
 function Calculator() {
