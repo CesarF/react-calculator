@@ -8,7 +8,7 @@ export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => 
     let { result, lastResult, currentResult, operator, history, decimal } = getState().resultReducer;
     // If user clicked on a number
     if( type === DIGIT_TYPE ) {
-      if( symbol === COMMA_DIGIT ) {
+      if( symbol === COMMA_DIGIT && currentResult % 1 === 0 ) {
         decimal = true;
       }
       else {
