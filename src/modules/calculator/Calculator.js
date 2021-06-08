@@ -10,6 +10,7 @@ import {
   FIVE_DIGIT,
   FOUR_DIGIT,
   MULTIPLY_OPERATION,
+  MUTATION_TYPE,
   NINE_DIGIT,
   ONE_DIGIT,
   OPERATION_TYPE,
@@ -28,11 +29,11 @@ import useCalculatorStyles from './calculatorStyles';
 
 // TODO line lenght are not correct
 const calculatorMatrix = [
-  [ { symbol: EMPTY_SLOT },                    { symbol: EMPTY_SLOT },                    { symbol: EMPTY_SLOT },                    { symbol: DIVIDE_OPERATION, type: OPERATION_TYPE }     ],
-  [ { symbol: SEVEN_DIGIT, type: DIGIT_TYPE }, { symbol: EIGTH_DIGIT, type: DIGIT_TYPE }, { symbol: NINE_DIGIT, type: DIGIT_TYPE },  { symbol: MULTIPLY_OPERATION, type: OPERATION_TYPE }   ],
-  [ { symbol: FOUR_DIGIT, type: DIGIT_TYPE },  { symbol: FIVE_DIGIT, type: DIGIT_TYPE },  { symbol: SIX_DIGIT, type: DIGIT_TYPE },   { symbol: SUBSTRACT_OPERATION, type: OPERATION_TYPE }  ],
-  [ { symbol: ONE_DIGIT, type: DIGIT_TYPE },   { symbol: TWO_DIGIT, type: DIGIT_TYPE },   { symbol: THREE_DIGIT, type: DIGIT_TYPE }, { symbol: ADD_OPERATION, type: OPERATION_TYPE }        ],
-  [ { symbol: ZERO_DIGIT, type: DIGIT_TYPE },  { symbol: EMPTY_SLOT },                    { symbol: COMMA_DIGIT, type: DIGIT_TYPE }, { symbol: RESULT_OPERATION, type: OPERATION_TYPE }     ]
+  [ { symbol: EMPTY_SLOT },                    { symbol: EMPTY_SLOT },                    { symbol: EMPTY_SLOT },                       { symbol: DIVIDE_OPERATION, type: OPERATION_TYPE }     ],
+  [ { symbol: SEVEN_DIGIT, type: DIGIT_TYPE }, { symbol: EIGTH_DIGIT, type: DIGIT_TYPE }, { symbol: NINE_DIGIT, type: DIGIT_TYPE },     { symbol: MULTIPLY_OPERATION, type: OPERATION_TYPE }   ],
+  [ { symbol: FOUR_DIGIT, type: DIGIT_TYPE },  { symbol: FIVE_DIGIT, type: DIGIT_TYPE },  { symbol: SIX_DIGIT, type: DIGIT_TYPE },      { symbol: SUBSTRACT_OPERATION, type: OPERATION_TYPE }  ],
+  [ { symbol: ONE_DIGIT, type: DIGIT_TYPE },   { symbol: TWO_DIGIT, type: DIGIT_TYPE },   { symbol: THREE_DIGIT, type: DIGIT_TYPE },    { symbol: ADD_OPERATION, type: OPERATION_TYPE }        ],
+  [ { symbol: ZERO_DIGIT, type: DIGIT_TYPE },  { symbol: EMPTY_SLOT },                    { symbol: COMMA_DIGIT, type: MUTATION_TYPE }, { symbol: RESULT_OPERATION, type: OPERATION_TYPE }     ]
 ]
 
 function Calculator() {

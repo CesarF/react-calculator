@@ -19,5 +19,6 @@ export const COMMA_DIGIT = ',';
 
 export const OPERATION_TYPE = 'operation';
 export const DIGIT_TYPE = 'digit';
+export const MUTATION_TYPE = 'mutation';
 
 export const EMPTY_SLOT = '--';
