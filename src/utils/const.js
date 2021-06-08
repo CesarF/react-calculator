@@ -16,6 +16,8 @@ export const EIGTH_DIGIT = '8';
 export const NINE_DIGIT = '9';
 
 export const COMMA_DIGIT = ',';
+export const SQUARE_OPERATION = 'x2';
+export const CLEAR_OPERATION = 'C';
 
 export const OPERATION_TYPE = 'operation';
 export const DIGIT_TYPE = 'digit';

@@ -1,5 +1,5 @@
-import { COMMA_DIGIT, DIGIT_TYPE, OPERATION_TYPE, RESULT_OPERATION, MUTATION_TYPE } from "../../utils/const";
-import { UPDATE_VALUE, ERROR } from "./types";
+import { COMMA_DIGIT, DIGIT_TYPE, OPERATION_TYPE, RESULT_OPERATION, MUTATION_TYPE, SQUARE_OPERATION, CLEAR_OPERATION } from "../../utils/const";
+import { UPDATE_VALUE, ERROR, CLEAR_VALUES } from "./types";
 import { operators } from './operators';
 
 
@@ -36,6 +36,10 @@ function processMutation( state, symbol ) {
   if( symbol === COMMA_DIGIT && state.currentResult % 1 === 0 ) {
     state.decimal = true;
   }
+  else if( symbol === SQUARE_OPERATION ) {
+    state.currentResult = state.currentResult * state.currentResult;
+    state.result = state.currentResult;
+  }
   return state;
 }
 
@@ -48,7 +52,11 @@ const operationManagers = {
 export const updateResult = ( symbol, type ) => async ( dispatch, getState ) => {
   try {
     let state = getState().resultReducer;
-
+    if( symbol === CLEAR_OPERATION ) {
+      return dispatch({
+        type : CLEAR_VALUES
+      });
+    }
     return dispatch({
       type    : UPDATE_VALUE,
       payload : {
