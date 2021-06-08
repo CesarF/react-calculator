@@ -8,7 +8,7 @@ const useButtonStyles = makeStyles(
       "&[data-type='operation']" : {
         backgroundColor: 'orange',
       },
-      "&[data-type='digit']" : {
+      "&[data-type='digit'],&[data-type='mutation']" : {
         backgroundColor: 'black',
       },
       "&:hover":{

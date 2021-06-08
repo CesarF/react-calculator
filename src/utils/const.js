@@ -15,7 +15,12 @@ export const SEVEN_DIGIT = '7';
 export const EIGTH_DIGIT = '8';
 export const NINE_DIGIT = '9';
 
+export const COMMA_DIGIT = ',';
+export const SQUARE_OPERATION = 'x2';
+export const CLEAR_OPERATION = 'C';
+
 export const OPERATION_TYPE = 'operation';
 export const DIGIT_TYPE = 'digit';
+export const MUTATION_TYPE = 'mutation';
 
 export const EMPTY_SLOT = '--';

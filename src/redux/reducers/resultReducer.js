@@ -1,4 +1,4 @@
-import { ERROR, UPDATE_VALUE } from '../actions/types';
+import { ERROR, UPDATE_VALUE, CLEAR_VALUES } from '../actions/types';
 
 /*
   currentResult and lastResult are in memory numbers to be processed, 
@@ -10,15 +10,22 @@ const INITIAL_STATE = {
   currentResult: 0,
   result       : 0,
   operator     : undefined,
-  error        : undefined
+  error        : undefined,
+  decimal      : false
 };
   
-export default function reduce( state = INITIAL_STATE, action ) {
+export default function reduce( state, action ) {
+  if( state === undefined ) {
+    state = INITIAL_STATE;
+  }
   if( action.type === UPDATE_VALUE ) {
     return {
       ...state,
       ...action.payload
     };
+  }
+  if( action.type === CLEAR_VALUES ) {
+    return { ...INITIAL_STATE };
   }
   if( action.type === ERROR ) {
     return {
@@ -26,5 +33,5 @@ export default function reduce( state = INITIAL_STATE, action ) {
       error: action.payload
     };
   }
-  return state;
+  return { ...state };
 };
